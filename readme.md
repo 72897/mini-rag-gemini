@@ -6,7 +6,7 @@ A production-style **Retrieval-Augmented Generation (RAG)** system that allows u
 
 ## 🚀 Live Demo URL
 
-👉 **Live App:** [https://mini-rag-gemini-3fabd7ffddttqhb9wdkrfk.streamlit.app/]([https://YOUR-DEPLOYED-STREAMLIT-URL](https://mini-rag-gemini-3fabd7ffddttqhb9wdkrfk.streamlit.app/))
+👉 **Live App:** [https://mini-rag-gemini-3fabd7ffddttqhb9wdkrfk.streamlit.app/](https://mini-rag-gemini-3fabd7ffddttqhb9wdkrfk.streamlit.app/)
 👉 **GitHub Repo:** [https://github.com/72897/mini-rag-gemini](https://github.com/72897/mini-rag-gemini)
 👉 **Resume:** [https://drive.google.com/file/d/19_pj8lsnp9PKMQcZ51wucB5b6SfLESnZ/view?usp=sharing](https://drive.google.com/file/d/19_pj8lsnp9PKMQcZ51wucB5b6SfLESnZ/view?usp=sharing)
 
