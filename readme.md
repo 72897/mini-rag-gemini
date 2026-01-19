@@ -1,19 +1,27 @@
 # Mini RAG Application (Gemini + Streamlit)
-
+Hi, this readme is developed by gpt , I just made it understand about how my project works.
 A production-style **Retrieval-Augmented Generation (RAG)** system that allows users to upload documents and ask context-aware questions using Google's Gemini LLM. The application performs semantic search over uploaded documents and generates grounded answers with citations and chat memory support.
 
 ---
 
-## 🚀 Features
+## 🚀 Live Demo URL
+
+👉 **Live App:** [https://mini-rag-gemini-3fabd7ffddttqhb9wdkrfk.streamlit.app/]([https://YOUR-DEPLOYED-STREAMLIT-URL](https://mini-rag-gemini-3fabd7ffddttqhb9wdkrfk.streamlit.app/))
+👉 **GitHub Repo:** [https://github.com/72897/mini-rag-gemini](https://github.com/72897/mini-rag-gemini)
+👉 **Resume:** [https://drive.google.com/file/d/19_pj8lsnp9PKMQcZ51wucB5b6SfLESnZ/view?usp=sharing](https://drive.google.com/file/d/19_pj8lsnp9PKMQcZ51wucB5b6SfLESnZ/view?usp=sharing)
+
+---
+
+## ✅ Features
 
 * PDF and TXT document upload
 * Automatic text chunking
 * Sentence Transformer embeddings
 * FAISS vector database for semantic search
 * Gemini 3 Flash LLM integration
-* Source-based answers with citations
+* Source-based answers with inline citations
 * Multi-turn chat history (conversation memory)
-* Streamlit interactive web interface
+* Streamlit interactive UI
 
 ---
 
@@ -21,7 +29,7 @@ A production-style **Retrieval-Augmented Generation (RAG)** system that allows u
 
 * **Frontend UI:** Streamlit
 * **LLM:** Google Gemini 3 Flash
-* **Embeddings:** Sentence Transformers
+* **Embeddings:** Sentence Transformers (all-MiniLM-L6-v2)
 * **Vector Database:** FAISS
 * **Framework:** LangChain
 * **Programming Language:** Python
@@ -62,14 +70,14 @@ cd mini-rag-gemini
 
 ### 2️⃣ Create Virtual Environment
 
-#### Windows:
+#### Windows
 
 ```bash
 python -m venv venv
 venv\Scripts\activate
 ```
 
-#### Mac/Linux:
+#### Mac/Linux
 
 ```bash
 python3 -m venv venv
@@ -88,7 +96,7 @@ pip install -r requirements.txt
 
 ## 🔐 Environment Configuration
 
-Create a `.env` file in root directory:
+Create a `.env` file:
 
 ```
 GEMINI_API_KEY=your_api_key_here
@@ -96,20 +104,18 @@ GEMINI_API_KEY=your_api_key_here
 
 ⚠ Important:
 
-* Do NOT push `.env` file to GitHub
-* Keep API key private
+* Never push `.env` to GitHub
+* Keep API keys private
 
 ---
 
-## ▶ Run Application
-
-Start Streamlit server:
+## ▶ Run Application Locally
 
 ```bash
 streamlit run app.py
 ```
 
-Application will be available at:
+App runs at:
 
 ```
 http://localhost:8501
@@ -117,30 +123,18 @@ http://localhost:8501
 
 ---
 
-## 📊 How The System Works
-
-1. User uploads PDF or TXT document
-2. Document is split into chunks
-3. Embeddings are generated using Sentence Transformers
-4. Vectors stored in FAISS database
-5. User query triggers semantic similarity search
-6. Retrieved chunks + chat history sent to Gemini
-7. Gemini generates grounded response with citations
-
----
-
-## 🧠 RAG Pipeline Architecture
+## 🧠 System Architecture
 
 ```
 User Query
      ↓
 Chat History Memory
      ↓
-Vector Similarity Search (FAISS)
+FAISS Vector Similarity Search
      ↓
-Relevant Context Retrieval
+Relevant Document Chunks
      ↓
-Prompt Injection
+Prompt Construction
      ↓
 Gemini LLM
      ↓
@@ -149,23 +143,67 @@ Final Answer + Citations
 
 ---
 
-## 🎯 Use Cases
+## 📊 How The RAG Pipeline Works
 
-* Enterprise document Q&A
-* Research assistants
-* Knowledge base chatbots
-* Customer support automation
-* Internal document search tools
+1. User uploads PDF/TXT document
+2. Document is chunked using RecursiveCharacterTextSplitter
+3. Embeddings are generated using Sentence Transformers
+4. Chunks are stored in FAISS vector database
+5. User query performs semantic similarity search
+6. Retrieved chunks + conversation history sent to Gemini
+7. Gemini generates grounded response with citations
 
 ---
 
-## 📌 Key Highlights
+## 📌 Index Configuration (Track B Requirement)
 
-* Prevents hallucinations using context grounding
-* Supports follow-up questions via conversation memory
-* Lightweight local vector storage
-* Easy cloud deployment
-* Internship assessment ready
+### Vector Database Settings
+
+* **Embedding Model:** all-MiniLM-L6-v2
+* **Vector Store:** FAISS (Local)
+* **Chunk Size:** 500 characters
+* **Chunk Overlap:** 100 characters
+* **Top-K Retrieval:** 3 chunks per query
+
+---
+
+## 📝 Remarks (Limits, Trade-offs, Future Improvements)
+
+### Current Limitations
+
+* Uses local FAISS instead of cloud vector DB
+* Session memory resets on app reload
+* No authentication layer
+* Single document upload at a time
+
+---
+
+### Trade-offs
+
+* Chose FAISS for simplicity and fast local testing
+* Used Gemini Flash model for lower latency
+* Streamlit selected for rapid UI development
+
+---
+
+### What I Would Improve Next
+
+* Add reranking using cross-encoder models
+* Implement hybrid search (keyword + vector)
+* Support multi-document indexing
+* Add persistent database storage
+* Implement streaming responses
+* Add user authentication
+
+---
+
+## 🎯 Use Cases
+
+* Enterprise document Q&A systems
+* Research assistant tools
+* Knowledge base chatbots
+* Customer support automation
+* Internal document retrieval
 
 ---
 
@@ -173,14 +211,3 @@ Final Answer + Citations
 
 **Kunal Singh**
 Track B — AI Engineer Internship Assessment
-
----
-
-## ⭐ Future Improvements (Optional)
-
-* Hybrid search (keyword + vector)
-* Reranking with Cross Encoders
-* Multi-file indexing
-* Streaming LLM responses
-* Authentication layer
-* Cloud vector database integration
